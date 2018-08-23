@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.Collections.Generic;
 
 public class Build
-{   
+{
     protected static string path = "Builds";
     protected static string filename = "DDLunchAndLearnARVR";
 
@@ -19,9 +19,10 @@ public class Build
     public static void DevelopmentBuild()
     {
         UnityEngine.Debug.Log("!!! Development Build Initialized");
-        string[] levels = new string[] 
-        { 
-            "Assets/Oculus/VR/Scenes/GearVrControllerTest.unity"
+        string[] levels = new string[]
+        {
+            //"Assets/Oculus/VR/Scenes/GearVrControllerTest.unity"
+            "Assets/Scenes/SampleScene.unity"
         };
 
         // Build player.
@@ -34,7 +35,8 @@ public class Build
     }
 
     [MenuItem("Custom Menu/Production")]
-    public static void ProductionBuild(){
+    public static void ProductionBuild()
+    {
         UnityEngine.Debug.Log("!!! Production Build Initialized");
     }
 }
