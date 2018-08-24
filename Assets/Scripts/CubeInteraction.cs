@@ -11,12 +11,15 @@ public class CubeInteraction : MonoBehaviour {
     
     [SerializeField] Color defaultColor;
     [SerializeField] Color hoverColor;
+    [SerializeField] Color activeColor;
 
     private void OnEnable()
     {
         m_InteractiveEvent = GetComponent<OVRInteractionEvent>();
         m_InteractiveEvent.OnEnter += HandleEnter;
         m_InteractiveEvent.OnExit += HandleExit;
+        m_InteractiveEvent.OnDown += HandleDown;
+        m_InteractiveEvent.OnUp += HandleUp;
     }
         
     void Start()
@@ -29,6 +32,8 @@ public class CubeInteraction : MonoBehaviour {
     {
         m_InteractiveEvent.OnEnter -= HandleEnter;
         m_InteractiveEvent.OnExit -= HandleExit;
+        m_InteractiveEvent.OnDown -= HandleDown;
+        m_InteractiveEvent.OnUp -= HandleUp;
     }
 
     private void HandleEnter(OVRInteractionEvent evt)
@@ -39,5 +44,15 @@ public class CubeInteraction : MonoBehaviour {
     private void HandleExit(OVRInteractionEvent evt)
     {
         m_Renderer.material.SetColor("_Color", defaultColor);
+    }
+
+    private void HandleDown(OVRInteractionEvent evt)
+    {
+        m_Renderer.material.SetColor("_Color", activeColor);
+    }
+
+    private void HandleUp(OVRInteractionEvent evt)
+    {
+        m_Renderer.material.SetColor("_Color", hoverColor);
     }
 }
