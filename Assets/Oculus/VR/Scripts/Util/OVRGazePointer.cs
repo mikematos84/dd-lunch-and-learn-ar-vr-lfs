@@ -54,7 +54,7 @@ public class OVRGazePointer : MonoBehaviour {
     /// <summary>
     /// Is gaze pointer current visible
     /// </summary>
-    public bool hidden { get; private set; }
+    public bool hidden { get; protected set; }
 
     /// <summary>
     /// Current scale applied to pointer
@@ -172,7 +172,7 @@ public class OVRGazePointer : MonoBehaviour {
 			rayTransform = Camera.main.transform;
 		
         // Move the gaze cursor to keep it in the middle of the view
-        // transform.position = rayTransform.position + rayTransform.forward * depth;
+        transform.position = rayTransform.position + rayTransform.forward * depth;
 
         // Should we show or hide the gaze cursor?
         if (visibilityStrength == 0 && !hidden)
