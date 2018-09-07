@@ -146,7 +146,6 @@ MonoBehaviour:
   currentOverlayType: 2
   isDynamic: 0
   isProtectedContent: 0
-  compositionDepth: 0
   currentOverlayShape: 0
   textures:
   - {fileID: 0}
